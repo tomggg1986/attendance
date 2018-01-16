@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -66,6 +67,7 @@ public class Reader {
          
          switch (com){
             case "a":
+               //this.showParticipantA();
                this.showParticipant(); 
                this.backToMenu();
                break;
@@ -97,7 +99,10 @@ public class Reader {
             Participant p = (Participant)iter.next();
             System.out.println(p);
         }        
-    }    
+    }   
+      public void showParticipantA(){
+       this.parti.sort(Comparator.comparing(Participant::getLastName));
+    } 
     public void showAttendance(){
         Iterator inter = this.attend.iterator();
         while(inter.hasNext()){
